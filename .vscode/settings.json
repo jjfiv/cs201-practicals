@@ -1,0 +1,12 @@
+{
+    "java.completion.filteredTypes": [
+        "com.sun.*",
+        "javax.swing.*",
+        "java.awt.List",
+        "sun.*",
+        "jdk.*",
+        "org.graalvm.*",
+        "io.micrometer.shaded.*"
+    ],
+    "java.debug.settings.vmArgs": "-ea"
+}
