@@ -1,3 +1,4 @@
+// Since this code is in the hw00 folder, we must announce that.
 package hw00;
 
 /**
@@ -7,7 +8,14 @@ package hw00;
  * .. that's super important to Java. It's picky like that.
  */
 public class Welcome {
+    /**
+     * Don't change any details about the outside of this `main` function
+     * ... it needs to be precise!
+     * In VSCode, the Run|Debug buttons will disappear.
+     */
     public static void main(String[] args) {
+        // Print statements are a bit more verbose than Python.
+        // And single-line comments start with slashes, not hash-signs: #
         System.out.println("Congratulations!");
         System.out.println("You've installed Java!");
     }
