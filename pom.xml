@@ -50,7 +50,6 @@
               <classpathPrefix>lib/</classpathPrefix>
               <addClasspath>true</addClasspath>
               <useUniqueVersions>false</useUniqueVersions>
-              <mainClass>edu.smith.cs.csc212.fishgrid.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
