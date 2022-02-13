@@ -1,5 +1,5 @@
-// Since this code is in the hw00 folder, we must announce that.
-package hw00;
+// Since this code is in the p0 folder, we must announce that.
+package week1;
 
 /**
  * Every Java file must have a class defined in it!
