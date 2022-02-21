@@ -84,5 +84,7 @@ public class Wallet {
         rich.spend(1_000, 0);
         // Make sure they can still afford $1k.
         assert rich.canAfford(1_000, 99);
+        // Make sure we can't.
+        assert !money.canAfford(1_000, 99);
     }
 }
