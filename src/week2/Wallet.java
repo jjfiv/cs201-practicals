@@ -1,5 +1,5 @@
-// Since this code is in the week1 folder, we must announce that.
-package week1;
+// Since this code is in the week2 folder, we must announce that.
+package week2;
 
 /**
  * This is class Wallet; it keeps track of money.
