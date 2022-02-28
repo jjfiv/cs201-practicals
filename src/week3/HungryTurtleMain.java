@@ -44,7 +44,7 @@ public class HungryTurtleMain extends GridView {
 
         // Create a line of rocks on the side.
         // TODO: wall in the environment with Rocks.
-        for (int y = 0; y < 10; y++) {
+        for (int y = 0; y < GRID_HEIGHT; y++) {
             this.grid.insert(new Rock()).setPosition(0, y);
         }
 
@@ -94,12 +94,12 @@ public class HungryTurtleMain extends GridView {
 
         // Eat fruit in onTop list
         for (Actor it : onTop) {
-            if (it instanceof Fruit) {
+            if (this.fruit.contains(it)) {
                 // Delete it from the world!
                 this.grid.remove(it);
                 // Award points:
                 this.fruitsEaten++;
-                // TODO: safely remove from this.fruits list.
+                // TODO: remove from this.fruits list.
             }
         }
     }
@@ -130,7 +130,7 @@ public class HungryTurtleMain extends GridView {
      * @param args - ignore args.
      */
     public static void main(String[] args) {
-        HungryTurtleMain app = new HungryTurtleMain();
+        GridView app = new HungryTurtleMain();
         app.start();
     }
 }
