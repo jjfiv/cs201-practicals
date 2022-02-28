@@ -50,7 +50,10 @@ public class HungryTurtleMain extends GridView {
 
         // Keep a list of fruit (it's OK for the turtle to step on them)
         this.fruit = new ArrayList<>();
+
+        // TODO: base this loop off of Fruit.EMOJI_NAMES array.
         for (int i = 0; i < 5; i++) {
+            // TODO: vary the kind of fruit.
             this.fruit.add(this.grid.insertRandomly(new Fruit()));
         }
     }
@@ -58,7 +61,8 @@ public class HungryTurtleMain extends GridView {
     @Override
     public String getHeaderText() {
         // This text shows up at the top of the window.
-        return "Fruits Eaten: " + this.fruitsEaten;
+        // You won't need to mess with this.
+        return "Fruits Eaten: " + this.fruitsEaten + " Left: " + this.fruit.size();
     }
 
     /**

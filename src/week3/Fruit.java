@@ -10,7 +10,7 @@ public class Fruit extends Actor {
     /**
      * These are all the fruits in our small emoji set.
      */
-    public static String[] FRUITS = { "strawberry", "cherries", "grapes", "green-apple", "kiwi-fruit", "lemon",
+    public static String[] EMOJI_NAMES = { "strawberry", "cherries", "grapes", "green-apple", "kiwi-fruit", "lemon",
             "mango", "pear", "pineapple", "red-apple", "tangerine", "watermelon" };
 
     /**
@@ -19,7 +19,8 @@ public class Fruit extends Actor {
     public Fruit() {
         // TODO: take an int parameter to this constructor, and look up into the static
         // array for the setEmoji call.
-        this.setEmoji(FRUITS[0]);
+        this.setEmoji(EMOJI_NAMES[0]);
+        this.visual.setScale(0.8);
     }
 
     @Override
