@@ -9,12 +9,36 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import me.jjfoley.gfx.IntPoint;
 
+/**
+ * This class represents a world simulation.
+ */
 public class GridEnv {
+    /**
+     * This list contains the actors (turtles, rocks, etc.) that have been added to
+     * the grid.
+     */
     public List<Actor> actors;
+
+    /**
+     * How big the grid environment is, in terms of width (number of cells).
+     */
     public int width;
+    /**
+     * How big the grid environment is, in therms of height (number of cells).
+     */
     public int height;
+    /**
+     * How many actors have been live in this simulation? This ensures they each get
+     * a unique {@link Actor#insertionOrder}.
+     */
     private int insertions;
 
+    /**
+     * To construct a GridEnv, pick a width and height (in cells).
+     * 
+     * @param width  - the size (horizontally).
+     * @param height - the size (vertically).
+     */
     public GridEnv(int width, int height) {
         this.width = width;
         this.height = height;
@@ -22,6 +46,12 @@ public class GridEnv {
         this.actors = new ArrayList<>();
     }
 
+    /**
+     * Add an actor to this GridEnv.
+     * 
+     * @param actor - any subclass of Actor is allowed.
+     * @return the actor you added.
+     */
     public Actor insert(Actor actor) {
         if (actor.environment != null) {
             throw new RuntimeException("Actor can only be inserted into one environment at a time.");
@@ -32,6 +62,12 @@ public class GridEnv {
         return actor;
     }
 
+    /**
+     * Check whether a point fits within this GridEnv.
+     * 
+     * @param point - (x,y)
+     * @return true if (x,y) are positive and less than width and height.
+     */
     public boolean inBounds(IntPoint point) {
         if (point.x < 0 || point.x >= this.width || point.y < 0 || point.y >= this.height) {
             return false;
@@ -39,6 +75,13 @@ public class GridEnv {
         return true;
     }
 
+    /**
+     * Insert an actor randomly.
+     * 
+     * @param <T>   the subclass of actor.
+     * @param actor the actor itself.
+     * @return the actor after insertion.
+     */
     public <T extends Actor> T insertRandomly(T actor) {
         Set<IntPoint> available = new HashSet<>();
         for (int x = 0; x < this.width; x++) {
@@ -58,6 +101,11 @@ public class GridEnv {
         return actor;
     }
 
+    /**
+     * Remove an actor from this grid/world.
+     * 
+     * @param actor - the actor to remove (must be inserted!)
+     */
     public void remove(Actor actor) {
         if (actor.environment != this) {
             throw new RuntimeException("Actor can only be removed from its own environment.");
@@ -66,18 +114,41 @@ public class GridEnv {
         actor.environment = null;
     }
 
+    /**
+     * The size of this environment (horizontally) in cells.
+     * 
+     * @return the width.
+     */
     public int getWidth() {
         return this.width;
     }
 
+    /**
+     * The size of this environment (vertically) in cells.
+     * 
+     * @return the height.
+     */
     public int getHeight() {
         return this.height;
     }
 
+    /**
+     * Find all the actors present in a particular (x,y) cell.
+     * 
+     * @param pt - the (x,y) coordinates.
+     * @return the actors in the cell.
+     */
     public List<Actor> find(IntPoint pt) {
         return this.find(pt.x, pt.y);
     }
 
+    /**
+     * Find all the actors present in a particular (x,y) cell.
+     * 
+     * @param x the x-coordinate.
+     * @param y the y-coordinate.
+     * @return the actors in the cell.
+     */
     public List<Actor> find(int x, int y) {
         List<Actor> output = new ArrayList<>();
         for (Actor actor : this.actors) {
@@ -99,6 +170,10 @@ public class GridEnv {
         return Collections.unmodifiableList(this.actors);
     }
 
+    /**
+     * Tell all the actors in this GridEnv to take their {@link Actor#act} method
+     * step once.
+     */
     public void act() {
         for (Actor it : this.actors) {
             it.act();
