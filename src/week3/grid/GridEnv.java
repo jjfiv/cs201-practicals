@@ -175,7 +175,9 @@ public class GridEnv {
      * step once.
      */
     public void act() {
-        for (Actor it : this.actors) {
+        // Update: by copying the list here, we make it possible for actors to remove
+        // themselves without concurrent modification of this.actors.
+        for (Actor it : new ArrayList<>(this.actors)) {
             it.act();
         }
     }
