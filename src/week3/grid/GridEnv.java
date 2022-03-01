@@ -49,10 +49,11 @@ public class GridEnv {
     /**
      * Add an actor to this GridEnv.
      * 
+     * @param <T>   - the subclass of Actor involved.
      * @param actor - any subclass of Actor is allowed.
      * @return the actor you added.
      */
-    public Actor insert(Actor actor) {
+    public <T extends Actor> T insert(T actor) {
         if (actor.environment != null) {
             throw new RuntimeException("Actor can only be inserted into one environment at a time.");
         }
@@ -83,21 +84,28 @@ public class GridEnv {
      * @return the actor after insertion.
      */
     public <T extends Actor> T insertRandomly(T actor) {
+        // Make a list of width * height points available:
         Set<IntPoint> available = new HashSet<>();
         for (int x = 0; x < this.width; x++) {
             for (int y = 0; y < this.height; y++) {
                 available.add(new IntPoint(x, y));
             }
         }
+        // Loop over existing actors, removing any points they touch.
         for (Actor existing : this.actors) {
             available.remove(existing.getPoint());
         }
+        // add the new thing, no matter what.
         this.insert(actor);
+        // Make the set of points into a list.
         List<IntPoint> positions = new ArrayList<>(available);
+        // if there's no points, leave it whereever.
         if (positions.size() > 0) {
+            // otherwise, choose a randomly-available point.
             IntPoint where = positions.get(ThreadLocalRandom.current().nextInt(positions.size()));
             actor.setPosition(where.x, where.y);
         }
+        // return the actor so it can be used.
         return actor;
     }
 
