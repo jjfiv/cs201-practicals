@@ -1,5 +1,6 @@
 package week4;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -41,6 +42,28 @@ public class MapProblems {
             counts.put(word, 1);
         }
         return counts;
+    }
+
+    /**
+     * Given a list of words (strings), record the positions where they occur in the
+     * input list.
+     * 
+     * @param words - the input to process
+     * @return - a map containing the indices that each unique word occurs.
+     */
+    public static Map<String, List<Integer>> indexWords(List<String> words) {
+        Map<String, List<Integer>> index = new HashMap<>();
+        for (int i = 0; i < words.size(); i++) {
+            String word = words.get(i);
+            if (index.containsKey(word)) {
+                // TODO: what if the word exists already?
+            } else {
+                List<Integer> positions = new ArrayList<>();
+                positions.add(i);
+                index.put(word, positions);
+            }
+        }
+        return index;
     }
 
     /**

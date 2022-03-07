@@ -31,8 +31,8 @@ public class ListProblems {
     /**
      * Given a list, find the index of its minimum value.
      * 
-     * @param numbers - a list of doubles.
-     * @return the position of the minimum value.
+     * @param numbers - a list of doubles, e.g., [3.0, 2.0, 1.0]
+     * @return the position of the minimum value, e.g., 2.
      */
     public static int findMinimumPosition(List<Double> numbers) {
         throw new RuntimeException();
