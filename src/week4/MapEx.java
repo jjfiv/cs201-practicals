@@ -23,6 +23,7 @@ public class MapEx {
 
         // remove deletes by key:
         items.remove("orange");
+        items.remove("onion");
 
         // get gives you a value for a key:
         Integer found = items.get("apple");
@@ -48,27 +49,27 @@ public class MapEx {
         }
     }
 
-    /**
-     * Count the number of pairs present in a list of playing cards (look only at
-     * value, not suit).
-     * 
-     * @param cards - a list of playing cards.
-     * @return the number of pairs in the list.
-     */
-    public static int countPairs(List<PlayingCard> cards) {
-        Map<Integer, Integer> valueCounts = new HashMap<>();
-        for (PlayingCard card : cards) {
-            int prevCount = valueCounts.getOrDefault(card.value, 0);
-            valueCounts.put(card.value, prevCount + 1);
-        }
+    // /**
+    // * Count the number of pairs present in a list of playing cards (look only at
+    // * value, not suit).
+    // *
+    // * @param cards - a list of playing cards.
+    // * @return the number of pairs in the list.
+    // */
+    // public static int countPairs(List<PlayingCard> cards) {
+    // Map<Integer, Integer> valueCounts = new HashMap<>();
+    // for (PlayingCard card : cards) {
+    // int prevCount = valueCounts.getOrDefault(card.value, 0);
+    // valueCounts.put(card.value, prevCount + 1);
+    // }
 
-        int pairs = 0;
-        for (int copies : valueCounts.values()) {
-            if (copies == 2) {
-                pairs += 1;
-            }
-        }
-        return pairs;
-    }
+    // int pairs = 0;
+    // for (int copies : valueCounts.values()) {
+    // if (copies == 2) {
+    // pairs += 1;
+    // }
+    // }
+    // return pairs;
+    // }
 
 }
