@@ -17,7 +17,7 @@ public class ComplexityEx {
      * @param query   - the value to find
      * @return the position of the value, or -1
      */
-    public int listSearch(List<Integer> dataset, int query) {
+    public static int listSearch(List<Integer> dataset, int query) {
         for (int i = 0; i < dataset.size(); i++) {
             if (dataset.get(i) == query) {
                 return i;
