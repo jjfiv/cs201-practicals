@@ -184,10 +184,14 @@ public class TwosGame extends GridView {
 
     @Override
     public String getHeaderText() {
-        return "2048 Clone";
+        if (this.gameOver()) {
+            return "2048: Game Over - Space Restarts";
+        }
+        return "2048";
     }
 
     public static void main(String[] args) {
+        TwosGame.TILE_SIZE = 100;
         TwosGame game = new TwosGame();
         game.start();
     }
