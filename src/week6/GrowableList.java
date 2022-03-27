@@ -80,14 +80,20 @@ public class GrowableList<T> extends ListADT<T> {
      * This private method is called when we need to make room in our GrowableList.
      */
     private void resizeArray() {
+        ArrayWrapper<T> larger = new ArrayWrapper<>(this.fill * 2);
+        // copy to larger;
+        // hold onto it by replacing this.array
         throw new TODOErr();
     }
 
     @Override
     public void addIndex(int index, T item) {
+        // Add to a specific location is the only list method that accepts the size of
+        // the list as a valid argument. Think about why.
         this.checkInclusiveIndex(index);
+        // Make space if needed:
         if (fill >= array.length()) {
-            resizeArray();
+            this.resizeArray();
         }
 
         throw new TODOErr();
