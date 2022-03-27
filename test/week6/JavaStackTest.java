@@ -1,4 +1,4 @@
-package adt;
+package week6;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -10,8 +10,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import adt.StackADT;
 import adt.errors.EmptyListError;
-import week6.JavaStack;
 
 public class JavaStackTest {
     @Test

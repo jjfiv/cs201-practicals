@@ -140,7 +140,7 @@ public class GrowableListTest {
         }
     }
 
-    private void insertSorted(ListADT<Integer> items, int num) {
+    private static void insertSorted(ListADT<Integer> items, int num) {
         for (int i = 0; i < items.size(); i++) {
             if (items.getIndex(i) >= num) {
                 items.addIndex(i, num);
