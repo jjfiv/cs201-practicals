@@ -1,6 +1,8 @@
-package adt;
+package adt.interop;
 
 import java.util.Iterator;
+
+import adt.ListADT;
 
 /**
  * This is an object that walks/loops/iterates/traverses through a ListADT type.

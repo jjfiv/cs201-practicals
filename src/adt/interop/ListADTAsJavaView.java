@@ -1,7 +1,9 @@
-package adt;
+package adt.interop;
 
 import java.util.AbstractList;
 import java.util.Collection;
+
+import adt.ListADT;
 
 /**
  * This class wraps a ListADT in Java's List interface.
