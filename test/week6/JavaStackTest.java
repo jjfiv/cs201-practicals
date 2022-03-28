@@ -28,6 +28,7 @@ public class JavaStackTest {
         stack.pop();
     }
 
+    @Test
     public void testEmptyPeek() {
         StackADT<String> stack = new JavaStack<>();
         assertNull(stack.peek());
