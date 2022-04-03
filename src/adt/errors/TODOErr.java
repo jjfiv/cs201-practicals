@@ -12,4 +12,13 @@ public class TODOErr extends RuntimeException {
 	public TODOErr() {
 		super("TODO-Error");
 	}
+
+	/**
+	 * Construct a TODOErr with some provenance.
+	 * 
+	 * @param source - where the error came from.
+	 */
+	public TODOErr(String source) {
+		super("TODO: " + source);
+	}
 }
