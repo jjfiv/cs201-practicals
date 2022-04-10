@@ -135,7 +135,7 @@ public class SortProblemsTest {
         }
         Collections.sort(expected);
         SortProblems.selectionSort(actual);
-        assertEquals(expected, actual);
+        assertEquals(expected, actual.toJava());
     }
 
     @Test
