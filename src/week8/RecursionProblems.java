@@ -27,6 +27,9 @@ public class RecursionProblems {
     }
 
     public static int recursiveMin(ListADT<Integer> numbers) {
+        if (numbers.size() <= 1) {
+            return numbers.getFront();
+        }
         int first = numbers.getFront();
         int minRest = recursiveMin(numbers.slice(1, numbers.size()));
         return Math.min(first, minRest);
