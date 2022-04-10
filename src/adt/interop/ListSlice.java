@@ -33,7 +33,7 @@ public class ListSlice<T> extends ListADT<T> {
 	public ListSlice(ListADT<T> data, int begin, int end) {
 		this.fullList = data;
 		this.fullList.checkInclusiveIndex(begin);
-		this.fullList.checkExclusiveIndex(end);
+		this.fullList.checkInclusiveIndex(end);
 		this.begin = begin;
 		this.end = end;
 	}

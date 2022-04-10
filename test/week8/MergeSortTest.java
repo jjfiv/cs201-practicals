@@ -11,6 +11,24 @@ import adt.impl.JavaList;
 
 public class MergeSortTest {
     @Test
+    public void testCombineSortedEven() {
+        ListADT<Integer> left = new JavaList<>();
+        left.addBack(2);
+        left.addBack(4);
+        ListADT<Integer> right = new JavaList<>();
+        right.addBack(1);
+        right.addBack(3);
+
+        ListADT<Integer> expected = new JavaList<>();
+        expected.addBack(1);
+        expected.addBack(2);
+        expected.addBack(3);
+        expected.addBack(4);
+
+        assertEquals(expected, MergeSort.combineTwoSortedLists(left, right));
+    }
+
+    @Test
     public void testCombineSortedLists() {
         ListADT<Integer> left = new JavaList<>();
         left.addBack(2);
@@ -28,8 +46,6 @@ public class MergeSortTest {
         expected.addBack(5);
 
         assertEquals(expected, MergeSort.combineTwoSortedLists(left, right));
-        assertEquals("Don't destroy the lists!", 2, left.size());
-        assertEquals("Don't destroy the lists!", 3, right.size());
     }
 
     @Test

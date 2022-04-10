@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -31,7 +33,8 @@ public class RecursionProblemsTest {
 
     @Test
     public void recursiveMinSimple() {
-        throw new TODOErr("You need to test recursiveMin");
+        ListADT<Integer> numbers = new JavaList<>(List.of(5, 4, 3, 2, 1));
+        assertEquals(1, RecursionProblems.recursiveMin(numbers));
     }
 
     @Test
@@ -50,7 +53,7 @@ public class RecursionProblemsTest {
     public void testIsPalindromeMultiple() {
         assertTrue(RecursionProblems.isPalindrome("abba"));
         assertTrue(RecursionProblems.isPalindrome("xyx"));
-        assertTrue(RecursionProblems.isPalindrome("river"));
+        assertFalse(RecursionProblems.isPalindrome("river"));
         assertTrue(RecursionProblems.isPalindrome("xyzzyx"));
         assertFalse(RecursionProblems.isPalindrome("xy"));
         assertFalse(RecursionProblems.isPalindrome("xyzabzyx"));
