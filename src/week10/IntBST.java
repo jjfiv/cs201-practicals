@@ -367,4 +367,33 @@ public class IntBST {
         }
 
     }
+
+    private static void printTraversals(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println("Pre-Order: " + node.value);
+        printTraversals(node.left);
+        System.out.println("In-Order: " + node.value);
+        printTraversals(node.right);
+        System.out.println("Post-Order: " + node.value);
+    }
+
+    public static void main(String[] args) {
+        IntBST example = new IntBST();
+        // L1:
+        example.insert(5);
+        // L2:
+        example.insert(3);
+        example.insert(7);
+        // L3:
+        example.insert(1);
+        example.insert(2);
+        example.insert(6);
+        example.insert(8);
+        // L4:
+        example.insert(0);
+        example.insert(9);
+        IntBST.printTraversals(example.root);
+    }
 }
