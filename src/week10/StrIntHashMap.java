@@ -125,11 +125,8 @@ public class StrIntHashMap extends MapADT<String, Integer> {
         EntryNode start = this.buckets.getIndex(bucket);
         // 3. Search the list for the pair we want:
         for (EntryNode current = start; current != null; current = current.next) {
-            if (current.matches(key)) {
-                // 3.a. If found, update the node and leave this method early.
-                current.value = value;
-                return;
-            }
+            // 3.a. If found, update the node and leave this method early.
+            throw new TODOErr("StrIntHashMap.put");
         }
         // 3.b. If not found, add our key, value to the front of this list! O(1).
         EntryNode addFront = new EntryNode(key, value, start);
@@ -200,10 +197,11 @@ public class StrIntHashMap extends MapADT<String, Integer> {
                 // 3.a. If we find it, remove the node and return the current value.
                 if (previous == null) {
                     // 3.a.1. it was the first node: (removeFront)
-                    this.buckets.setIndex(bucket, current.next);
+                    // HINT: you'll need buckets.setIndex
+                    throw new TODOErr("HashMap.SLL.removeFront");
                 } else {
-                    // 3.a.2. it wasn't:
-                    previous.next = current.next;
+                    // 3.a.2. it wasn't the first node:
+                    previous = current.next;
                 }
 
                 // 3.a.3. Update sizes & maybe shrink buckets...
