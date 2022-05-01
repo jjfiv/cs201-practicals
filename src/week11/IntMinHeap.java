@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.RandomAccess;
 
 import adt.errors.EmptyListError;
+import adt.errors.TODOErr;
 
 /**
  * This class represents a 'min' heap over integers.
@@ -98,8 +99,9 @@ public class IntMinHeap {
      * @param value - the value to add to the heap.
      */
     public void insert(int value) {
-        this.heap.add(value);
-        this.siftUp(this.heap.size() - 1);
+        // 1. add to the back of the this.heap list.
+        // 2. sift-up that value.
+        throw new TODOErr("IntMinHeap.insert");
     }
 
     /**
@@ -157,10 +159,9 @@ public class IntMinHeap {
         if (this.heap.size() > 1) {
             // swap the bottom to the top and siftdown:
             int replacement = this.heap.remove(this.heap.size() - 1);
-            this.heap.set(0, replacement);
-            this.siftDown(0);
+            throw new TODOErr("put " + replacement + " at the top and siftDown from there!");
         } else {
-            // delete the last thing
+            // delete the last thing, no sifting needed.
             this.heap.remove(0);
         }
         return top;
