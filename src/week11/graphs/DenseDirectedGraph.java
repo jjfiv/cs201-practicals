@@ -15,7 +15,7 @@ public class DenseDirectedGraph<T> {
 
     public DenseDirectedGraph() {
     }
-    
+
     public Node<T> lookupOrCreateNode(T value) {
         int next_id = nodesByIndex.size();
         int actual_id = this.nodesByValue.getOrDefault(value, next_id);
@@ -64,13 +64,11 @@ public class DenseDirectedGraph<T> {
 
         public Set<GraphNode<T>> neighbors() {
             HashSet<GraphNode<T>> output = new HashSet<>();
-            // for (int node_id : graph.edges.getOrDefault(this.index, Collections.emptySet())) {
-            //     output.add(new Node<>(graph, node_id, graph.nodesByIndex.get(node_id)));
+            // for (int node_id : graph.edges.getOrDefault(this.index,
+            // Collections.emptySet())) {
+            // output.add(new Node<>(graph, node_id, graph.nodesByIndex.get(node_id)));
             // }
             return output;
         }
     }
-}
-
-
 }

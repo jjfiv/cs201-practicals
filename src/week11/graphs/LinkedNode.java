@@ -31,9 +31,7 @@ public class LinkedNode<T> implements GraphNode<T> {
     @Override
     public Set<GraphNode<T>> neighbors() {
         HashSet<GraphNode<T>> output = new HashSet<>();
-        for (var link : this.links) {
-            output.add(link);
-        }
+        output.addAll(this.links);
         return output;
     }
 
