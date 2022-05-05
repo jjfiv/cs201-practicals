@@ -118,3 +118,17 @@ public class Adventure {
 	}
 
 }
+
+// Optional Challenge: Secret Exits
+// - add a ``class SecretExit extends Exit`` to this directory.
+// - Override the method called boolean isSecret(). Exits are never secret, but
+// SecretExits are until you search for them.
+// - SecretExit should have a private boolean hidden, that starts off as true.
+// - When a user types search, if there is a SecretExit in the room they are
+// currently in, it should be made visible to them.
+// - Make a void search() method on Place that calls search() on all of its
+// exits.
+// - Override void search() on SecretExit so that it becomes no-longer-secret
+// when called.
+// - Put a SecretExit from the basement to the secretRoom in SpookyMansion OR
+// anywhere you like.

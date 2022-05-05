@@ -6,8 +6,10 @@ import java.util.Map;
 /**
  * SpookyMansion, the game.
  * 
+ * First designed at Smith College: https://github.com/jjfiv/CSC212SpookyMansion
+ * Adapted to Python, once: https://github.com/jjfiv/py-text-adventure
+ * 
  * @author jfoley
- *
  */
 public class SpookyMansion implements GameWorld {
 	/**
