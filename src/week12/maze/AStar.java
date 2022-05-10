@@ -31,10 +31,6 @@ public class AStar extends Solver {
             return true;
         }
 
-        // have we reached the goal?
-        if (maze.isGoal(current.x, current.y)) {
-            return true;
-        }
         // consider all four neighbors:
         List<IntPoint> neighbors = List.of(
                 new IntPoint(current.x, current.y + 1),

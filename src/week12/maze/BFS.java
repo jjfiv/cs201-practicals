@@ -27,13 +27,10 @@ public class BFS extends Solver {
         // explore the most recent item first:
         IntPoint current = this.toVisit.removeLast();
         if (this.visitPoint(current)) {
+            // we reached the goal.
             return true;
         }
 
-        // have we reached the goal?
-        if (maze.isGoal(current.x, current.y)) {
-            return true;
-        }
         // consider all four neighbors:
         List<IntPoint> neighbors = List.of(
                 new IntPoint(current.x, current.y + 1),

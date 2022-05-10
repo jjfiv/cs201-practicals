@@ -9,9 +9,10 @@ import week3.grid.GridEnv;
 import week3.grid.GridView;
 
 public class MazeViewer extends GridView {
-
     int currentMaze = 0;
     Solver solver = null;
+    private static String[] SOLVER_NAMES = { "BFS", "DFS", "A*" };
+    int solverId = 0;
 
     public MazeViewer() {
         super(new GridEnv(10, 10));
@@ -33,7 +34,13 @@ public class MazeViewer extends GridView {
                 } else if (maze.isStart(x, y)) {
                     this.grid.insert(new Decoration("dog")).setPosition(x, y);
                     assert this.solver == null : "Only one goal per map";
-                    this.solver = new BFS(new IntPoint(x, y), maze, this.grid);
+                    if (this.solverId == 0) {
+                        this.solver = new BFS(new IntPoint(x, y), maze, this.grid);
+                    } else if (this.solverId == 1) {
+                        this.solver = new DFS(new IntPoint(x, y), maze, this.grid);
+                    } else {
+                        this.solver = new AStar(new IntPoint(x, y), maze, this.grid);
+                    }
                 }
             }
         }
@@ -41,7 +48,8 @@ public class MazeViewer extends GridView {
 
     @Override
     public String getHeaderText() {
-        return String.format("Maze %d/%d", this.currentMaze + 1, Mazes.definitions.size());
+        return String.format("Maze %d/%d (%s)", this.currentMaze + 1, Mazes.definitions.size(),
+                SOLVER_NAMES[this.solverId]);
     }
 
     @Override
@@ -54,7 +62,17 @@ public class MazeViewer extends GridView {
                 maze += Mazes.definitions.size();
             }
             this.setMaze(maze);
-        } else {
+        } else if (buttons.up) {
+            this.solverId -= 1;
+            if (solverId < 0) {
+                solverId += SOLVER_NAMES.length;
+            }
+            this.setMaze(this.currentMaze);
+        } else if (buttons.down) {
+            this.solverId += 1;
+            this.solverId %= SOLVER_NAMES.length;
+            this.setMaze(this.currentMaze);
+        } else if (buttons.space) {
             if (this.solver != null) {
                 this.solver.animate();
             }
